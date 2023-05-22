@@ -1,12 +1,13 @@
 from flask import Flask, render_template
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired
 from flask_bootstrap import Bootstrap5  # pip install bootstrap-flask
 
 
 class LoginForm(FlaskForm):
-    email = StringField('Email')
-    password = PasswordField('Password')
+    email = StringField('Email', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField(label="Log In")
 
 
